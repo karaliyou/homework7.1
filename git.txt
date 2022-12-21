@@ -1,0 +1,58 @@
+1. Устанавливаем git, скачивая по ссылке
+https://gitforwindows.org/
+2. Переходим в папку с проектом, очищаем её от файлов компилятора Python
+cd /home/user/project
+find . -name *.pyc -delete
+
+3. Создаем локальный репозиторий в папке с проектом, добавляем в него файл readme
+git init
+git add readme
+(добавить всю папку с подпапками)
+git add --all
+(отмена добавления файла)
+git rm --cached readme
+
+4. Проверка текущего состояния
+git status
+
+5. Создание новой версии проекта
+git commit -m "comment"
+(изменение последней версии)
+git commit --amend --no-edit
+
+6. Просмотр коммитов:
+git log --oneline
+(изменения конкретного коммита)
+git show 657ab4c 
+
+7. Отмена последнего коммита
+git reset HEAD~1
+
+8. Удаление не относящихся к проекту файлов
+git clean -df
+
+9. Добавляем удаленный репозиторий
+git remote add origin git@github.com:myuser/project.git
+
+10. Первая синхронизация удаленного и локального репозитория
+git push -u github master
+(после этого упрощенная команда)
+git push
+
+11. Копирование репозитория на другой компьютер
+git clone https://github.com/myuser/project.git
+
+12. Получение обновлений с удаленного репозитория
+git pull
+(с заменой файлов)
+git fetch --all
+git reset --hard github/master
+
+13. Форсирование замены файлов удаленного репозитория
+git push -f
+
+14. Откладывание изменений
+git stash
+(применение отложенных изменений)
+git pull
+git stash pop
